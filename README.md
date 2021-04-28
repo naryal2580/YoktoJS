@@ -1,0 +1,3 @@
+# Yocto JAM
+
+Nothing special :)
