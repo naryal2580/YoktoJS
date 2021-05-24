@@ -1,4 +1,3 @@
-const $ = (query) => {return document.querySelectorAll(query);};
 const $r = (callback) => { window.addEventListener("DOMContentLoaded", () => {callback();});};
 const $_ = async (method, url, data) => {
     const resp = await fetch(url, {
