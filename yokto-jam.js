@@ -3,7 +3,7 @@ const $ = (query) => {
     if (elems.length === 1) {
         return elems[0];
     }
-    return elems;
+    return Array.prototype.slice.call(elems);
 };
 const $$ = (callback) => {
     window.addEventListener("DOMContentLoaded", () => {
