@@ -2,7 +2,7 @@ const $ = (query) => {
     const elems = document.querySelectorAll(query);
     if (elems.length === 1) {
         return elems[0];
-    }
+    };
     return Array.prototype.slice.call(elems);
 };
 const $$ = (callback) => {
@@ -14,7 +14,7 @@ const $_ = async (method, url, data) => {
     var headers = {};
     if (data) {
         headers['Content-Type'] = 'application/json';
-    }
+    };
     const resp = await fetch(url, {
         method: method,
         mode: 'same-origin',
