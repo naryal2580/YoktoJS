@@ -1,3 +1,3 @@
 # Yocto JAM
 
-Nothing special :)
+No framework framework 😛
