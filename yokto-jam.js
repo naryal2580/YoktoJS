@@ -5,6 +5,21 @@ const $ = (query) => {
     };
     return Array.prototype.slice.call(elems);
 };
+const _ = (parentSelector, tag, attrs, innerText) => {
+    const parentElem = document.querySelector(parentSelector);
+    let elem = document.createElement(tag);
+    if ( attrs ) {
+        attrs.forEach( (attr) => {
+            for (key in attr) {
+                elem.setAttribute(key, attr[key]);
+            };
+        });
+    }
+    if (innerText) {
+        elem.innerText = innerText;
+    };
+    parentElem.appendChild(elem);
+};
 const $$ = (callback) => {
     window.addEventListener("DOMContentLoaded", () => {
         callback();
