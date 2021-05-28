@@ -5,17 +5,22 @@ const $ = (query) => {
     };
     return Array.prototype.slice.call(elems);
 };
+const __ = (obj) => {
+    if ('length' in obj) {
+        return true;
+    }
+}
 const _ = (parentSelector, tag, attrs, innerText) => {
     var parentElem = $(parentSelector);
-    if ('length' in parentElem) {
+    if (__(parentElem)) {
         parentElem = parentElem[0];
     }
     let elem = document.createElement(tag);
-    if ( attrs ) {
-        if ( !('length' in attrs) ) {
+    if (attrs) {
+        if (!(__(attrs))) {
             var attrs = [attrs];
         };
-        attrs.forEach( (attr) => {
+        attrs.forEach((attr) => {
             for (key in attr) {
                 elem.setAttribute(key, attr[key]);
             };
