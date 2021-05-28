@@ -6,9 +6,15 @@ const $ = (query) => {
     return Array.prototype.slice.call(elems);
 };
 const _ = (parentSelector, tag, attrs, innerText) => {
-    const parentElem = document.querySelector(parentSelector);
+    var parentElem = $(parentSelector);
+    if ('length' in parentElem) {
+        parentElem = parentElem[0];
+    }
     let elem = document.createElement(tag);
     if ( attrs ) {
+        if ( !('length' in attrs) ) {
+            var attrs = [attrs];
+        };
         attrs.forEach( (attr) => {
             for (key in attr) {
                 elem.setAttribute(key, attr[key]);
