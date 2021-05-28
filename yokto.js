@@ -1,33 +1,25 @@
-const $ = (query) => {
+const $ = (query, return_list) => {
     const elems = document.querySelectorAll(query);
-    if (elems.length === 1) {
+    if (elems.length === 1 || !return_list) {
         return elems[0];
     };
     return Array.prototype.slice.call(elems);
 };
 const __ = (obj) => {
-    if ('length' in obj) {
+    if (typeof(obj) === "object" && 'length' in obj) {
         return true;
-    }
-}
+    };
+};
 const _ = (parentSelector, tag, attrs, innerText) => {
     var parentElem = $(parentSelector);
-    if (__(parentElem)) {
-        parentElem = parentElem[0];
-    }
     let elem = document.createElement(tag);
-    if (attrs) {
-        if (!(__(attrs))) {
-            var attrs = [attrs];
+    if ( !(__(typeof(attrs))) ) {
+        for (key in attrs) {
+            elem.setAttribute(key, attrs[key]);
         };
-        attrs.forEach((attr) => {
-            for (key in attr) {
-                elem.setAttribute(key, attr[key]);
-            };
-        });
-    }
+    };
     if (innerText) {
-        elem.innerText = innerText;
+        elem.innerText = innerText.toString();
     };
     parentElem.appendChild(elem);
 };
