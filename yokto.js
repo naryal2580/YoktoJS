@@ -45,3 +45,6 @@ const $_ = async (method, url, data) => {
     });
     return await resp.json();
 };
+String.prototype.isNum = () => {
+    return /^\d+$/.test(this);
+}
