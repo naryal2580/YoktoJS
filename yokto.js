@@ -6,7 +6,7 @@ const $ = (query, return_list) => {
     return Array.prototype.slice.call(elems);
 };
 const __ = (obj) => {
-    if (typeof(obj) === "object" && obj.length) {
+    if (typeof(obj) === "object" && obj.length) {  // WARN: Will also return undefined when the Array is empty.
         return true;
     };
 };
