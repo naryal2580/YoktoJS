@@ -6,7 +6,7 @@ const $ = (query, return_list) => {
     return Array.prototype.slice.call(elems);
 };
 const __ = (obj) => {
-    if (typeof(obj) === "object" && 'length' in obj) {
+    if (typeof(obj) === "object" && obj.length) {
         return true;
     };
 };
